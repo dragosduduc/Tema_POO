@@ -1,9 +1,7 @@
 #ifndef ANGAJAT_H
 #define ANGAJAT_H
 
-#include "Data.h"
-#include <string>
-using namespace std;
+#include "Verificari.h"
 
 class Angajat {
 protected:
@@ -22,9 +20,7 @@ public:
     virtual string getPrenume() const;
     virtual bool isBirthMonth() const;
     virtual void changeName();
-
     static void resign(vector<Angajat*>&);
-
     virtual void afisare() const;
 };
 

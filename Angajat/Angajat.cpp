@@ -1,7 +1,5 @@
 #include "Angajat.h"
 
-#include "auxiliar.h"
-
 //nrAngajati reprezintă numărul de angajări făcute vreodată de companie
 //nrDemisionati reprezintă numărul de demisii făcute vreodată de companie
 //numărul de angajați curenți la companie este nrAngajati - nrDemisionati

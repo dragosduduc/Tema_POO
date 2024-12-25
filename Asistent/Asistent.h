@@ -10,7 +10,6 @@ public:
     Asistent() = default;
     Asistent(string, string, string, int, int, int);
     float getSalariu() const;
-
     void afisare() const;
 };
 

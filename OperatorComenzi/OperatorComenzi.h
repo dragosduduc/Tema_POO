@@ -4,13 +4,12 @@
 #include "Angajat.h"
 using namespace std;
 
-class operatorComenzi: public Angajat {
+class OperatorComenzi: public Angajat {
     float coeficientSalariu = 1;
 public:
-    operatorComenzi() = default;
-    operatorComenzi(string, string, string, int, int, int);
+    OperatorComenzi() = default;
+    OperatorComenzi(string, string, string, int, int, int);
     float getSalariu() const;
-
     void afisare() const;
 };
 

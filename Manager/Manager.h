@@ -10,7 +10,6 @@ public:
     Manager() = default;
     Manager(string, string, string, int, int, int);
     float getSalariu() const;
-
     void afisare() const;
 };
 

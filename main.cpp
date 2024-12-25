@@ -1,5 +1,4 @@
-#include "Angajat.h"
-#include "auxiliar.h"
+#include "ptAngajare.h"
 #include <vector>
 
 int main() {

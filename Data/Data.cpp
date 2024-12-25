@@ -1,5 +1,6 @@
 #include "Data.h"
 
+// constructor fără parametri, care generează un obiect de tip Data cu valorile curente, reale, extrase din dispozitiv
 Data::Data() {
     auto now = chrono::system_clock::now();
     auto time = chrono::system_clock::to_time_t(now);
@@ -9,8 +10,10 @@ Data::Data() {
     an = local_time.tm_year + 1900;
 }
 
+// constructor cu parametri
 Data::Data(int z, int l, int a): zi{z}, luna{l}, an{a} {};
 
+// getter-e și setter-e
 int Data::getZi() const {
     return zi;
 }
@@ -80,6 +83,7 @@ Data Data::getTimeGap() const {
     return dif;
 }
 
+// operator<<
 ostream& operator<<(ostream& dev, const Data& data) {
     dev << data.zi << " " << data.luna << " " << data.an;
     return dev;
