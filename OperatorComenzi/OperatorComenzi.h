@@ -2,7 +2,6 @@
 #define OPERATORCOMENZI_H
 
 #include "Angajat.h"
-using namespace std;
 
 class OperatorComenzi: public Angajat {
     float coeficientSalariu = 1;

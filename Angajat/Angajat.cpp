@@ -9,11 +9,6 @@ int Angajat::nrDemisionati = 0;
 // constructor cu parametri
 Angajat::Angajat(string arg_nume, string arg_prenume, string arg_CNP, int arg_zi, int arg_luna, int arg_an): nume{arg_nume}, prenume{arg_prenume}, CNP{arg_CNP}, ID{nrAngajati++}, dataAngajare{arg_zi, arg_luna, arg_an} {};
 
-// operator==
-bool Angajat::operator==(const Angajat& angajat) const {
-    return (CNP == angajat.CNP);
-}
-
 // getNume()
 string Angajat::getNume() const {
     return nume;
@@ -85,7 +80,7 @@ void Angajat::resign(vector<Angajat*>& vect) {
     vect.erase(vect.begin() + poz - 1);
 
     // se incrementează variabila statică nrDemisionati
-    Angajat::nrDemisionati++;
+    Angajat::newDemisionat();
 
     // se afișează mesajul de confirmare și se afișează vectorul de angajați rămas
     cout << "Angajatul " << nume_dem << " " << prenume_dem << " a demisionat cu succes. Angajatii ramasi in companie sunt:" << endl;
@@ -95,6 +90,11 @@ void Angajat::resign(vector<Angajat*>& vect) {
         (*it)->afisare();
         cout << endl;
     }
+}
+
+// se crește variabila statica nrDemisionati - folosită la resign()
+void Angajat::newDemisionat() {
+    nrDemisionati++;
 }
 
 // funcție de afișare

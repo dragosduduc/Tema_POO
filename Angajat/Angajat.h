@@ -5,22 +5,22 @@
 
 class Angajat {
 protected:
+    static int nrAngajati, nrDemisionati;
     string nume, prenume, CNP;
     Data dataAngajare;
     const int ID;
     int salariuBaza = 3500;
 public:
-    static int nrAngajati, nrDemisionati;
     Angajat() = default;
     Angajat(string, string, string, int, int, int);
-    bool operator==(const Angajat&) const;
     virtual ~Angajat() = default;
     virtual float getSalariu() const = 0;
-    virtual string getNume() const;
-    virtual string getPrenume() const;
-    virtual bool isBirthMonth() const;
-    virtual void changeName();
+    string getNume() const;
+    string getPrenume() const;
+    bool isBirthMonth() const;
+    void changeName();
     static void resign(vector<Angajat*>&);
+    static void newDemisionat();
     virtual void afisare() const;
 };
 

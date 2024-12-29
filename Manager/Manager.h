@@ -2,7 +2,6 @@
 #define MANAGER_H
 
 #include "Angajat.h"
-using namespace std;
 
 class Manager: public Angajat {
     float coeficientSalariu = 1.25;

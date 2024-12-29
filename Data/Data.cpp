@@ -34,7 +34,7 @@ void Data::setAn(int a) {
 }
 
 // validarea datei
-bool Data::isDateValid() {
+bool Data::isDateValid() const {
 
     // data curentă
     Data crt;

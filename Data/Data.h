@@ -16,7 +16,7 @@ public:
     void setZi(int);
     void setLuna(int);
     void setAn(int);
-    bool isDateValid();
+    bool isDateValid() const;
     Data getTimeGap() const;
     friend ostream& operator<<(ostream&, const Data&);
 };

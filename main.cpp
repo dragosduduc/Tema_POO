@@ -1,5 +1,5 @@
 #include "ptAngajare.h"
-#include <vector>
+#include "ptStoc.h"
 
 int main() {
 
@@ -10,21 +10,21 @@ int main() {
     // crearea vectorului initial de angajați
     int cnt = 0;
     vector<Angajat*> angajati(nrElem);
-    vector<Angajat*>::iterator it = angajati.begin();
-    for (it = angajati.begin(); it < angajati.end(); it++) {
+    vector<Angajat*>::iterator it_ang = angajati.begin();
+    for (it_ang = angajati.begin(); it_ang != angajati.end(); it_ang++) {
         cout << "---CANDIDATUL " << ++cnt << "---" << endl;
-        (*it) = angajare();
+        (*it_ang) = angajare();
     }
-    for (it = angajati.begin(); it < angajati.end(); it++) {
-        (*it)->afisare();
+    for (it_ang = angajati.begin(); it_ang < angajati.end(); it_ang++) {
+        (*it_ang)->afisare();
         cout << endl;
     }
 
     // schimbarea numelui celui de-al doilea angajat
-    it = angajati.begin();
-    (*(it + 1))->changeName();
-    for (it = angajati.begin(); it < angajati.end(); it++) {
-        (*it)->afisare();
+    it_ang = angajati.begin();
+    (*(it_ang + 1))->changeName();
+    for (it_ang = angajati.begin(); it_ang < angajati.end(); it_ang++) {
+        (*it_ang)->afisare();
         cout << endl;
     }
 
@@ -34,10 +34,46 @@ int main() {
 
     // angajarea unei persoane noi
     cout << endl << "Un nou angajat!" << endl << endl;
-    angajati.push_back(angajare());
-    nrElem++;
-    for (it = angajati.begin(); it < angajati.end(); it++) {
-        (*it)->afisare();
+    Angajat* newAng = angajare();
+    if (newAng != nullptr) {
+        angajati.push_back(newAng);
+        nrElem++;
+    }else {
+        cout << endl << "Noua persoana nu a putut fi angajata." << endl;
+    }
+    for (it_ang = angajati.begin(); it_ang < angajati.end(); it_ang++) {
+        (*it_ang)->afisare();
+        cout << endl;
+    }
+
+    // structura pentru stoc, în care se adaugă două tipuri de produse
+    map<int, pair<Produs*, int>> stoc;
+    adaugareProdus(stoc);
+    adaugareProdus(stoc);
+
+    // se afișează stocul și prețul total al fiecărui produs din stoc
+    map<int, pair<Produs*, int>>::iterator it_stoc = stoc.begin();
+    for (it_stoc = stoc.begin(); it_stoc != stoc.end(); it_stoc++) {
+        (*it_stoc).second.first->afisare();
+        cout << endl;
+        cout << (*it_stoc).second.first->getPretTotal();
+        cout << endl;
+    }
+
+    // se modifică stocul unui produs și se afișează din nou pentru verificare
+    modifStoc(stoc);
+    it_stoc = stoc.begin();
+    for (it_stoc = stoc.begin(); it_stoc != stoc.end(); it_stoc++) {
+        (*it_stoc).second.first->afisare();
+        cout << " ";
+        cout << (*it_stoc).second.second;
+        cout << endl;
+    }
+
+    for (it_stoc = stoc.begin(); it_stoc != stoc.end(); it_stoc++) {
+        (*it_stoc).second.first->afisare();
+        cout << endl;
+        cout << (*it_stoc).second.first->getPretBaza();
         cout << endl;
     }
 

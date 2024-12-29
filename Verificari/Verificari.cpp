@@ -89,3 +89,24 @@ string formatName(string name) {
     }
     return name;
 }
+
+// verificarea tipului de produs
+bool isTypeValid(int productType) {
+    if (productType < 1 || productType > 4)
+        throw std::invalid_argument("Produsul trebuie sa apartina uneia dintre categoriile mentionate mai sus.\n");
+    return true;
+}
+
+// verificarea numărului de produse introduse in stoc, acesta trebuie să fie natural si diferit de 0
+bool isNumberPositive(int number) {
+    if (number <= 0)
+        throw std::invalid_argument("Numarul de produse adaugate trebuie sa fie un numar natural diferit de 0.\n");
+    return true;
+}
+
+// verificarea coeficientului de raritate, folosita la citirea unui obiect de tip DiscVintage
+bool isRarityValid(int number) {
+    if (number < 1 || number > 5)
+        throw std::invalid_argument("Coeficientul de raritate are valori intregi de la 1 la 5.\n");
+    return true;
+}

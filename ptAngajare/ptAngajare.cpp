@@ -86,5 +86,6 @@ Angajat* angajare() {
             return new Asistent(nume, prenume, CNP, zi, luna, an);
         default:
             cout << "A aparut o eroare in evaluarea tipului de angajat." << endl;
+            return nullptr;
     }
 }

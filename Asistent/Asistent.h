@@ -2,7 +2,6 @@
 #define ASISTENT_H
 
 #include "Angajat.h"
-using namespace std;
 
 class Asistent: public Angajat {
     float coeficientSalariu = 0.75;
