@@ -17,6 +17,7 @@ public:
     virtual float getSalariu() const = 0;
     string getNume() const;
     string getPrenume() const;
+    virtual float getCoefSalariu() const = 0;
     bool isBirthMonth() const;
     void changeName();
     static void resign(vector<Angajat*>&);

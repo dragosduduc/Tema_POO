@@ -6,5 +6,6 @@
 #include "Asistent.h"
 
 Angajat* angajare();
+bool okAng();
 
 #endif //PTANGAJARE_H

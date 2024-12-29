@@ -89,3 +89,10 @@ Angajat* angajare() {
             return nullptr;
     }
 }
+
+// se verifică numărul și tipul angajaților, folosit în interfață la asigurarea că magazinul functionează corect
+bool okAng() {
+    if (Manager::getNrManager() >= 1 && OperatorComenzi::getNrOperator() >= 3 && Asistent::getNrAsistent() >= 1)
+        return true;
+    return false;
+}

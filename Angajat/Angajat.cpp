@@ -1,5 +1,9 @@
 #include "Angajat.h"
 
+#include "Asistent.h"
+#include "Manager.h"
+#include "OperatorComenzi.h"
+
 //nrAngajati reprezintă numărul de angajări făcute vreodată de companie
 //nrDemisionati reprezintă numărul de demisii făcute vreodată de companie
 //numărul de angajați curenți la companie este nrAngajati - nrDemisionati
@@ -49,6 +53,7 @@ void Angajat::changeName() {
 
 // funcție de demisie
 void Angajat::resign(vector<Angajat*>& vect) {
+
     cout << endl << "Cine demisioneaza? Introduceti un numar valid." << endl << endl;
     // se afișează toți angajații
     int cnt = 0;
@@ -71,6 +76,15 @@ void Angajat::resign(vector<Angajat*>& vect) {
             ok = 1;
     }
 
+    // se incrementează variabilele statice corespunzătoare
+    Angajat::newDemisionat();
+    if (vect[poz - 1]->getCoefSalariu() == 1.25)
+        Manager::resignManager();
+    else if (vect[poz - 1]->getCoefSalariu() == 1)
+        OperatorComenzi::resignOperator();
+    else if (vect[poz - 1]->getCoefSalariu() == 0.75)
+        Asistent::resignAsistent();
+
     // se reține numele persoanei, pentru a fi afișate la mesajul de confirmare a demisiei
     string nume_dem = vect[poz - 1]->getNume();
     string prenume_dem = vect[poz - 1]->getPrenume();
@@ -78,9 +92,6 @@ void Angajat::resign(vector<Angajat*>& vect) {
     // se sterge elementul din memorie și din vector
     delete vect[poz - 1];
     vect.erase(vect.begin() + poz - 1);
-
-    // se incrementează variabila statică nrDemisionati
-    Angajat::newDemisionat();
 
     // se afișează mesajul de confirmare și se afișează vectorul de angajați rămas
     cout << "Angajatul " << nume_dem << " " << prenume_dem << " a demisionat cu succes. Angajatii ramasi in companie sunt:" << endl;

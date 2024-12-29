@@ -8,5 +8,6 @@
 
 void adaugareProdus(map<int, pair<Produs*, int>>&);
 void modifStoc(map<int, pair<Produs*, int>>&);
+bool okStoc();
 
 #endif //PTSTOC_H

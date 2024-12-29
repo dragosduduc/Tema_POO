@@ -1,7 +1,27 @@
 #include "Asistent.h"
 
+int Asistent::nrAsistenti = 0;
+
 // constructor cu parametri
-Asistent::Asistent(string arg_nume, string arg_prenume, string arg_CNP, int arg_zi, int arg_luna, int arg_an): Angajat{arg_nume, arg_prenume, arg_CNP, arg_zi, arg_luna, arg_an} {};
+Asistent::Asistent(string arg_nume, string arg_prenume, string arg_CNP, int arg_zi, int arg_luna, int arg_an): Angajat{arg_nume, arg_prenume, arg_CNP, arg_zi, arg_luna, arg_an} {
+    nrAsistenti++;
+}
+
+void Asistent::newAsistent() {
+    nrAsistenti++;
+}
+
+void Asistent::resignAsistent() {
+    nrAsistenti--;
+}
+
+int Asistent::getNrAsistent() {
+    return nrAsistenti;
+}
+
+float Asistent::getCoefSalariu() const {
+    return coeficientSalariu;
+}
 
 // getSalariu()
 float Asistent::getSalariu() const {

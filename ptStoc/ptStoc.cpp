@@ -53,6 +53,7 @@ void adaugareProdus(map<int, pair<Produs*, int>>& vect) {
         // adaugăm în map perechea, unde cheia este codul obiectului
         newP = new ArticolVestimentar{nume, pret, brand, culoare};
         vect[newP->getCod()] = make_pair(newP, nr);
+        ArticolVestimentar::addArticoleVestimentare(nr);
         cout << "Ati adaugat cu succes " << nr << " obiecte de tip ArticolVestimentar." << endl;
 
     } else if (tip == 2) {
@@ -105,6 +106,7 @@ void adaugareProdus(map<int, pair<Produs*, int>>& vect) {
         // adaugăm în map perechea, unde cheia este codul obiectului
         newP = new CD{nume, pret, band, recordLabel, lansare};
         vect[newP->getCod()] = make_pair(newP, nr);
+        CD::addCD(nr);
         cout << "Ati adaugat cu succes " << nr << " obiecte de tip CD." << endl;
 
     } else if (tip == 3) {
@@ -157,6 +159,7 @@ void adaugareProdus(map<int, pair<Produs*, int>>& vect) {
         // adaugăm în map perechea, unde cheia este codul obiectului
         newP = new Vinil{nume, pret, band, recordLabel, lansare};
         vect[newP->getCod()] = make_pair(newP, nr);
+        Vinil::addVinil(nr);
         cout << "Ati adaugat cu succes " << nr << " obiecte de tip Vinil." << endl;
 
     } else if (tip == 4) {
@@ -171,7 +174,7 @@ void adaugareProdus(map<int, pair<Produs*, int>>& vect) {
         cin >> pret;
 
         bool mint;
-        cout << "Disc-ului Vintage este mint? (Da - 1/true, Nu - 0/false: ";
+        cout << "Disc-ului Vintage este mint? (Da - 1/true, Nu - 0/false): ";
         cin >> mint;
 
         int rarity;
@@ -201,6 +204,7 @@ void adaugareProdus(map<int, pair<Produs*, int>>& vect) {
         // adaugăm în map perechea, unde cheia este codul obiectului
         newP = new DiscVintage{nume, pret, mint, rarity};
         vect[newP->getCod()] = make_pair(newP, nr);
+        DiscVintage::addDiscVintage(nr);
         cout << "Ati adaugat cu succes " << nr << " obiecte de tip DiscVintage." << endl;
     }
 }
@@ -224,9 +228,11 @@ void modifStoc(map<int, pair<Produs*, int>>& vect) {
     cin >> key;
 
     // se introduce canditatea cu care se modifică stocul
-    cout << "Cum doriti sa modificati cantitatea? (pentru a introduce 'n' bucati tastati n, pentru a elimina 'n' bucati tastati -n." << endl;
+    cout << "Cum doriti sa modificati cantitatea? (pentru a adauga 'n' bucati tastati n, pentru a elimina 'n' bucati tastati -n." << endl;
     int delta;
     cin >> delta;
+
+
 
     // se caută cheia (codul produsului) în map și se modifică int-ul din pair (second.second)
     it = vect.find(key);
@@ -234,8 +240,25 @@ void modifStoc(map<int, pair<Produs*, int>>& vect) {
         if ((*it).second.second + delta >= 0) {
             (*it).second.second += delta;
             cout << "Stoc actualizat cu succes." << endl;
+
+            // se modifică variabila statică corespunzătoare
+            if (typeid(*((*it).second.first)) == typeid(ArticolVestimentar))
+                ArticolVestimentar::addArticoleVestimentare(delta);
+            else if (typeid(*((*it).second.first)) == typeid(CD))
+                CD::addCD(delta);
+            else if (typeid(*((*it).second.first)) == typeid(Vinil))
+                Vinil::addVinil(delta);
+            else if (typeid(*((*it).second.first)) == typeid(DiscVintage))
+                DiscVintage::addDiscVintage(delta);
         } else
             cout << "Nu exista suficiente produse in stoc." << endl;
     else
         cout << "Nu exista niciun produs cu acest cod." << endl;
+}
+
+// se verifică numărul și tipul produselor, folosit în interfață la asigurarea că magazinul functionează corect
+bool okStoc() {
+    if (ArticolVestimentar::getNrArticoleVestimentare() >= 2 && CD::getNrCDs() >= 2 && Vinil::getNrVinil() >= 2 && DiscVintage::getNrDiscVintage() >= 2)
+        return true;
+    return false;
 }

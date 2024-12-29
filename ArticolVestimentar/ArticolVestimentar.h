@@ -5,10 +5,13 @@
 
 class ArticolVestimentar: public Produs {
     string marca, culoare;
+    static int nrArticoleVestimentare;
 public:
     ArticolVestimentar() = default;
     ArticolVestimentar(string, float, string, string);
     ~ArticolVestimentar() = default;
+    static void addArticoleVestimentare(int);
+    static int getNrArticoleVestimentare();
     float getPretTotal() const;
     void afisare() const;
 };

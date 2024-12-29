@@ -6,10 +6,13 @@
 class DiscVintage: public Produs {
     bool isMint;
     int coefRaritate;
+    static int nrDiscVintage;
 public:
     DiscVintage() = default;
     DiscVintage(string, float, bool, int);
     ~DiscVintage() = default;
+    static void addDiscVintage(int);
+    static int getNrDiscVintage();
     float getPretTotal() const;
     void afisare() const;
 };
