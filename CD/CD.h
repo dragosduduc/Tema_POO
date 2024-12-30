@@ -11,6 +11,7 @@ public:
     ~CD() = default;
     static void addCD(int);
     static int getNrCDs();
+    string getTip() const;
 };
 
 #endif //CD_H

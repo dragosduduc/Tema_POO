@@ -85,6 +85,6 @@ Data Data::getTimeGap() const {
 
 // operator<<
 ostream& operator<<(ostream& dev, const Data& data) {
-    dev << data.zi << " " << data.luna << " " << data.an;
+    dev << data.zi << "/" << data.luna << "/" << data.an;
     return dev;
 }

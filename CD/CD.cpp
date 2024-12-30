@@ -11,3 +11,7 @@ void CD::addCD(int quant) {
 int CD::getNrCDs() {
     return nrCDs;
 }
+
+string CD::getTip() const {
+    return "CD";
+}

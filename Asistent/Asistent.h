@@ -8,7 +8,7 @@ class Asistent: public Angajat {
     static int nrAsistenti;
 public:
     Asistent() = default;
-    Asistent(string, string, string, int, int, int);
+    Asistent(string, string, string, string, int, int, int);
     static void newAsistent();
     static void resignAsistent();
     static int getNrAsistent();

@@ -12,6 +12,7 @@ public:
     ~ArticolVestimentar() = default;
     static void addArticoleVestimentare(int);
     static int getNrArticoleVestimentare();
+    string getTip() const;
     float getPretTotal() const;
     void afisare() const;
 };

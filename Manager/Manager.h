@@ -8,7 +8,7 @@ class Manager: public Angajat {
     static int nrManageri;
 public:
     Manager() = default;
-    Manager(string, string, string, int, int, int);
+    Manager(string, string, string, string, int, int, int);
     static void newManager();
     static void resignManager();
     static int getNrManager();

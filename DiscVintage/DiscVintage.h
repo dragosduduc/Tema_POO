@@ -13,6 +13,7 @@ public:
     ~DiscVintage() = default;
     static void addDiscVintage(int);
     static int getNrDiscVintage();
+    string getTip() const;
     float getPretTotal() const;
     void afisare() const;
 };

@@ -7,7 +7,9 @@
 #include "DiscVintage.h"
 
 void adaugareProdus(map<int, pair<Produs*, int>>&);
-void modifStoc(map<int, pair<Produs*, int>>&);
+bool modifStoc(map<int, pair<Produs*, int>>&);
 bool okStoc();
+bool stergeStoc(map<int, pair<Produs*, int>>&);
+bool preturiStoc(map<int, pair<Produs*, int>>&);
 
 #endif //PTSTOC_H

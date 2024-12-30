@@ -10,5 +10,5 @@ float Disc::getPretTotal() const {
 
 void Disc::afisare() const {
     Produs::afisare();
-    cout << trupa << " " << casaDiscuri << " " << punereVanzare << " ";
+    cout << ", compus de " << trupa << ", produs de " << casaDiscuri << ", lansat la " << punereVanzare << ", ";
 }

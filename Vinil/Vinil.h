@@ -11,6 +11,7 @@ public:
     ~Vinil() = default;
     static void addVinil(int);
     static int getNrVinil();
+    string getTip() const;
 };
 
 #endif //VINIL_H

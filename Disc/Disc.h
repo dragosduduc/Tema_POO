@@ -13,6 +13,7 @@ public:
     ~Disc() = 0;
     float getPretTotal() const;
     virtual void afisare() const;
+    virtual string getTip() const = 0;
 };
 
 #endif //DISC_H

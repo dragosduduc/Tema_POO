@@ -15,5 +15,5 @@ float Produs::getPretBaza() const {
 }
 
 void Produs::afisare() const {
-    cout << cod << " " << nume << " " << pretBaza << " ";
+    cout << "ID: " << cod << ", [" << getTip() << "] " << nume;
 }

@@ -15,6 +15,7 @@ public:
     virtual ~Produs() = 0;
     int getCod() const;
     float getPretBaza() const;
+    virtual string getTip() const = 0;
     virtual float getPretTotal() const = 0;
     virtual void afisare() const;
 };

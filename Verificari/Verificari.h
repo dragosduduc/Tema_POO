@@ -12,5 +12,6 @@ string formatName(string);
 bool isTypeValid(int);
 bool isNumberPositive(int);
 bool isRarityValid(int);
+bool isPasswordValid(string);
 
 #endif //VERIFICARI_H

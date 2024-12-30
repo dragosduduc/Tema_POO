@@ -110,3 +110,10 @@ bool isRarityValid(int number) {
         throw std::invalid_argument("Coeficientul de raritate are valori intregi de la 1 la 5.\n");
     return true;
 }
+
+// verificarea lungimii parolei, folosita la angajare()
+bool isPasswordValid(string password) {
+    if (password.size() < 6)
+        throw std::length_error("Parola trebuie sa aiba minim 6 caractere.\n");
+    return true;
+}

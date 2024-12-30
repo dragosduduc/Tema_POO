@@ -12,3 +12,7 @@ int Vinil::getNrVinil() {
     return nrVinil;
 }
 
+string Vinil::getTip() const {
+    return "VINIL";
+}
+

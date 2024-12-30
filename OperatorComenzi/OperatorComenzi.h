@@ -8,7 +8,7 @@ class OperatorComenzi: public Angajat {
     static int nrOperatori;
 public:
     OperatorComenzi() = default;
-    OperatorComenzi(string, string, string, int, int, int);
+    OperatorComenzi(string, string, string, string, int, int, int);
     static void newOperator();
     static void resignOperator();
     static int getNrOperator();

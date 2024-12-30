@@ -12,11 +12,16 @@ int ArticolVestimentar::getNrArticoleVestimentare() {
     return nrArticoleVestimentare;
 }
 
+string ArticolVestimentar::getTip() const {
+    return "ART. VEST.";
+}
+
+
 float ArticolVestimentar::getPretTotal() const {
     return pretBaza + 20;
 }
 
 void ArticolVestimentar::afisare() const{
     Produs::afisare();
-    cout << marca << " " << culoare << " ";
+    cout << " " << marca << " " << culoare << ", ";
 }
