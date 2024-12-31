@@ -260,6 +260,23 @@ bool modifStoc(map<int, pair<Produs*, int>>& vect) {
     return 0;
 }
 
+// se modifica stocul unui produs aflat deja în catalogul magazinului IN COMANDA
+void modifStocCOMANDA(map<int, pair<Produs*, int>>::iterator it, int quant) {
+
+    // se actualizează cantitatea din pair
+    (*it).second.second -= quant;
+
+    // se modifică variabila statică corespunzătoare
+    if (typeid(*((*it).second.first)) == typeid(ArticolVestimentar))
+        ArticolVestimentar::addArticoleVestimentare(-quant);
+    else if (typeid(*((*it).second.first)) == typeid(CD))
+        CD::addCD(-quant);
+    else if (typeid(*((*it).second.first)) == typeid(Vinil))
+        Vinil::addVinil(-quant);
+    else if (typeid(*((*it).second.first)) == typeid(DiscVintage))
+        DiscVintage::addDiscVintage(-quant);
+}
+
 // se verifică numărul și tipul produselor, folosit în interfață la asigurarea că magazinul functionează corect
 bool okStoc() {
     if (ArticolVestimentar::getNrArticoleVestimentare() >= 2 && CD::getNrCDs() >= 2 && Vinil::getNrVinil() >= 2 && DiscVintage::getNrDiscVintage() >= 2)
@@ -301,7 +318,6 @@ bool stergeStoc(map<int, pair<Produs*, int>>& vect) {
 
 bool preturiStoc(map<int, pair<Produs*, int>>& vect) {
 
-    // se afișează toate produsele din catalog, pentru ca utilizatorul să aleagă ce produs dorește să șteargă
     auto it = vect.begin();
     for (it = vect.begin(); it != vect.end(); it++) {
         cout << "                      ";
