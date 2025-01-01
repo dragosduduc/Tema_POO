@@ -40,7 +40,9 @@ MAIN
 
 În main am introdus datele pentru angajați și produse și am creat o variabilă de tip GestiuneComenzi, care va fi folosită în interfața de utilizator.
 Pentru interfată, am realizat un switch cu 16 cazuri, unul pentru fiecare situație de care am avut nevoie. Din pagina de bază se pot realiza comenzi sau, dacă utilizatorul este angajat al firmei, se poate autentifica cu CNP-ul și parola contului său de angajat și poate accesa setările magazinului, adică poate să interacționeze cu structura de angajați a magazinului, cu structura de produse, poate monitoriza comenzile plasate până la momentul respectiv sau poate genera raportări. În ceea ce privește structurile de date folosite, angajații sistemului sunt memorați într-un vector de adrese de bază, iar produsele sunt memorate într-un arbore binar echilibrat (map) prin care cheia de acces este ID-ul produsului, iar obiectul reținut în map este un pair Produs* + cantitate.
+
 TESTE 
+
 -	în setul 1 nu am introdus numărul corespunzător de manageri și se poate testa că un client nu va putea realiza comenzi
 -	în setul 2 nu am introdus numărul corespunzător de produse și, din nou, magazinul nu va putea functiona corespunzător
 -	în setul 3 magazinul functionează corespunzător, cu suficiente produse cât pentru a se testa realizarea de comenzi, se poate verifica că o comandă nu poate fi plasată dacă nu are preț de bază de cel puțin 100 RON sau dacă are mai mult de 3 articole vestimentare sau 5 discuri, se poate verifica gestiunea automată a comenzilor și generarea de rapoarte.
